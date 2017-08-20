@@ -1,0 +1,2 @@
+/* userRelease.wxss */
+@import "../latest/latest.wxss";

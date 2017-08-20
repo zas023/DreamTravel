@@ -1,0 +1,22 @@
+<!--signup.wxml-->
+<view class="container">
+  <view bindtap="bindlog" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">您将使用微信帐号一键登录或注册旅拍</text>
+    <text class="user-motto">请点击头像登录</text>
+    <text class="user-motto"></text>
+    <view class="classname">
+      <checkbox-group bindchange="checkboxChange">
+        <checkbox value="agree" checked="{{checkedAgree}}">
+          <text class="user-xieyi" bindtap="bindOnXY">同意用户协议</text>
+        </checkbox>
+      </checkbox-group>
+    </view>
+    <text class="user-motto"></text>
+    <text class="user-motto"></text>
+  </view>
+</view>
+<button size="default" disabled="{{!checkedAgree}}" bindtap="bindBtnLogin">登陆</button>

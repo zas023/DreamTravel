@@ -1,0 +1,22 @@
+<!--aboutUS.wxml-->
+<view class="container">
+  <view class="content">
+    <view class="content-word">
+      <view class="content-move">
+        <view class="world">时间，是无法停留的时间。</view>
+        <view class="world">但即使是在其最平庸和最简单的时刻。</view>
+        <view class="world">也是独一无二、一去不回的。</view>
+        <view class="world">每幅照片的奇妙之处，</view>
+        <view class="world">不仅在把“光阴留住”</view>
+        <view class="world">因为每个时间的“一次”，</view>
+        <view class="world">也是一个故事的开始，</view>
+        <view class="world">开头总是“从前...”</view>
+        <view class="world">理想周行是直接对消费者和摄影师的约拍平台，</view>
+        <view class="world">剔除了影楼和工作室的中间费用，</view>
+        <view class="world">让普通客户和企业拍照更便宜。</view>
+        <view class="world">理想周行的摄影师都是平台经过严格的审核、筛选出来的优质摄影师，</view>
+        <view class="world">为您带来更多保障以及最优质的贴心服务。</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,144 @@
+<!--detail.wxml-->
+<view class="container">
+  <view class="topic-detail">
+    <!-- 用户信息 -->
+    <view class="topic-owner">
+
+      <image class="owner-avatar" src="{{yuepai.touxiang}}"></image>
+
+      <view>
+        <view class="title-up">
+          <view class="user-info">
+            <view class="user-name">
+              <text>{{yuepai.author}}</text>
+              <view wx:if="{{!user.gender}}">
+                <image style="margin-left: 20rpx; width: 25px; height: 25px" src="../../images/personal_icon_male.png"></image>
+              </view>
+              <view wx:else>
+                <image style="margin-left: 20rpx; width: 25px; height: 25px" src="../../images/personal_icon_female.png"></image>
+              </view>
+            </view>
+
+          </view>
+
+        </view>
+
+
+        <view class="user_local">
+          <view>
+            <image style="width: 18px; height: 18px" src="../../images/icon_location.png"></image>
+            <text style="margin-left: 10rpx; font-size: 25rpx">{{user.city}}</text>
+          </view>
+          <view>
+            <image style="width: 20px; height: 20px" src="../../images/icon_attention.png"></image>
+            <text style="margin-left: 10rpx; font-size: 25rpx">{{yuepai.mark}}</text>
+          </view>
+        </view>
+
+      </view>
+
+      <image bindtap="bindReservate" style="width: 140px; height: 30px" src="../../images/personal_icon_female.png" src="../../images/user_btn_reservation.png"></image>
+    </view>
+    <!-- 签名和内容描述 -->
+    <view class="topic-content">
+      <text>{{user.qianming}}</text>
+    </view>
+
+    <view class="title_work" style="margin-top: 6rpx">
+      <image style="width: 20px; height: 20px" src="../../images/icon_works.png"></image>
+      <text style="margin-left: 15px">发布信息</text>
+    </view>
+
+    <view class="topic-content">
+      <text>{{yuepai.content}}</text>
+    </view>
+
+    <!-- 拍摄要求 -->
+    <view class="title_work">
+      <image style="margin-left: 20rpx;margin-up: 10rpx; width: 25px; height: 25px" src="../../images/item_icon_photo.png"></image>
+      <text style="margin-left: 20rpx">底片张数:不低于{{yuepai.photoNum}}张</text>
+    </view>
+    <view class="title_work">
+      <image style="margin-left: 20rpx;margin-up: 10rpx; width: 25px; height: 25px" src="../../images/item_icon_ps.png"></image>
+      <text style="margin-left: 20rpx">精修照片:不低于{{yuepai.psNum}}张</text>
+    </view>
+    <view class="title_work">
+      <image style="margin-left: 20rpx;margin-up: 10rpx; width: 25px; height: 25px" src="../../images/item_icon_film.png"></image>
+      <text style="margin-left: 20rpx">支持视频:{{yuepai.film}}</text>
+    </view>
+    <view class="title_work">
+      <image style="margin-left: 20rpx;margin-up: 10rpx; width: 25px; height: 25px" src="../../images/item_icon_time.png"></image>
+      <text style="margin-left: 20rpx">提供服装:{{yuepai.custom}}</text>
+    </view>
+    <!-- 发布信息中的图片 -->
+    <swiper wx:if="{{yuepai.images.length}}" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
+      <block wx:for="{{yuepai.images}}">
+        <swiper-item class="yuepai_item">
+          <image src="{{item}}" mode="scaleToFill"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+
+    <!-- 发布信息的轮播 -->
+    
+    <view class="weui-cells__title">Ta的发布（点击查看TA的所有发布）</view>
+    <navigator url="../userRelease/userRelease?username={{user.username}}" open-type="redirect">
+      <view class="weui-cells weui-cells_after-title">
+
+        <view class="weui-cell" bindtap="navToUserHomePage">
+          <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+            <image src="{{user.touxiang}}" style="width: 50px; height: 50px; display: block" />
+            <view class="weui-badge" style="position: absolute;top: -.4em;right: -.4em;">{{user.yueNum}}</view>
+          </view>
+          <view class="weui-cell__bd">
+            <view>{{user.username}}</view>
+            <view style="font-size: 13px;color: #888888;">{{user.qianming}}</view>
+          </view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </view>
+
+      </view>
+    </navigator>
+    <!-- 作品列表 -->
+    <view class="title_work">
+      <image style="width: 25px; height: 25px" src="../../images/detail_icon_work.png"></image>
+      <text style="margin-left: 20rpx">Ta的作品({{works.length}})</text>
+    </view>
+  </view>
+
+  <view class="works">
+    <block wx:for="{{works}}">
+      <view class="works-item" id="{{item.id}}">
+
+        <image class="work-image" src="{{item.image}}"></image>
+
+        <view class="reply-content">
+          {{item.content}}
+        </view>
+      </view>
+    </block>
+  </view>
+  <loading hidden="{{hidden}}">
+    加载中...
+  </loading>
+  <!-- 预约联系方式列表 -->
+  <action-sheet hidden="{{actionSheetHidden}}" bindchange="listenerActionSheet">
+
+    <!-- <block wx:for-items="{{actionSheetItems}}"> -->
+    <action-sheet-item bindtap="bindItemTap0">
+      <text selectable="true">{{actionSheetItems[0]}}</text>
+    </action-sheet-item>
+    <action-sheet-item bindtap="bindItemTap1">
+      <text selectable="true">{{actionSheetItems[1]}}</text>
+    </action-sheet-item>
+    <action-sheet-item bindtap="bindItemTap2">
+      <text selectable="true">{{actionSheetItems[2]}}</text>
+    </action-sheet-item>
+    <action-sheet-item bindtap="bindItemTap">
+      <text selectable="true">{{actionSheetItems[3]}}</text>
+    </action-sheet-item>
+    <!-- </block> -->
+    <!--自动隐藏action-sheet-->
+    <action-sheet-cancel>取消</action-sheet-cancel>
+  </action-sheet>
+</view>

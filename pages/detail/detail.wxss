@@ -1,0 +1,159 @@
+.container {
+  background: #eee;
+}
+
+.topic-detail {
+  background: #fff;
+  margin-top: 2rpx;
+}
+
+.topic-owner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 30rpx;
+  justify-content: space-around;
+}
+
+.owner-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  /* margin-left: 30rpx;
+  margin-top: 30rpx;
+  margin-right: 30rpx; */
+  border-radius: 100%;
+}
+
+.topic-created {
+  /*margin-left: 30rpx;*/
+  font-size: 14px;
+  color: #999;
+}
+
+.topic-tit {
+  flex: 1;
+  box-sizing: border-box;
+  padding-right: 10rpx;
+  line-height: 1.4;
+  font-size: 14px;
+  color: #333;
+}
+
+.title-up {
+  display: flex;
+  flex-direction: row;
+  margin-top: 15rpx;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.user-name {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 40rpx;
+  color: #777;
+}
+
+.user_local {
+  display: flex;
+  flex-direction: cow;
+  justify-content: space-around;
+}
+
+.topic-qianming {
+  Text-indent: 30px;
+  width: 60%;
+  margin-left: 20rpx;
+  line-height: 1.4;
+  word-wrap: break-word;
+  word-break: normal;
+  font-size: 14px;
+  color: #333;
+}
+
+.topic-content {
+  Text-indent: 30px;
+  margin-left: 20rpx;
+  line-height: 1.4;
+  word-wrap: break-word;
+  word-break: normal;
+  font-size: 14px;
+  color: #333;
+}
+
+.yuepai {
+  height: 120px;
+}
+
+.yuepai_item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.yuepai_image {
+  margin-left: 10rpx;
+  margin-top: 10rpx;
+  width: 110px;
+  height: 110px;
+}
+
+.yuepai_content {
+  font-size: 25rpx;
+}
+
+.title_work {
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.works {
+  border-top: 1px solid #ddd;
+  background: #eee;
+}
+
+.works-item {
+  padding: 30rpx;
+  border-left: 5px solid #eee;
+  border-right: 5px solid #eee;
+  border-bottom: 4px solid #eee;
+  border-top: 4px solid #eee;
+  background: #fff;
+}
+
+.work-image {
+  width: 100%;
+  margin-bottom: 40rpx;
+}
+
+.reply-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 100%;
+  margin-right: 30rpx;
+}
+
+.reply-name, .reply-time, .reply-content {
+  font-size: 14px;
+  color: #999;
+}
+
+.reply-time {
+  margin-left: 30rpx;
+  color: #ccc;
+}
+
+.reply-content {
+  padding: 0 20rpx;
+  line-height: 1.4;
+  word-wrap: break-word;
+  word-break: normal;
+  color: #999;
+}

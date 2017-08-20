@@ -1,0 +1,55 @@
+<!--myRelease.wxml-->
+<view class="container">
+  <view class="title_work">
+    <image style="width: 25px; height: 25px" src="../../../images/icon_works.png"></image>
+    <text style="margin-left: 20rpx">我的发布({{yuepais.length}})</text>
+  </view>
+  <view class="topic-main">
+    <block wx:for="{{yuepais}}" wx:key="myId" wx:for-index="key">
+
+      <view class="topic-item" index="{{index}}" id="{{key}}" bindlongtap="bindDelet">
+
+        <image class="member-avatar" mode="scaleToFill" src="{{item.touxiang}}" background-size="cover"></image>
+
+        <view class="topic-info">
+          <view class="topic-inner">
+            <view class="topic-up">
+              <view class="topic-left">
+                <view class="topic-title">
+                  <text class="topic-username">{{item.author}}</text>
+                </view>
+                <view class="topic-content">{{item.content}}</view>
+              </view>
+              <view class="topic-right">
+                <text class="topic-cost">{{item.cost}}</text>
+                <text>元起/{{item.unit}}</text>
+              </view>
+            </view>
+
+            <swiper wx:if="{{item.images.length}}" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
+              <block wx:for="{{item.images}}">
+                <swiper-item>
+                  <image src="{{item}}" mode="scaleToFill"></image>
+                  <text>{{item.content}}</text>
+                </swiper-item>
+              </block>
+            </swiper>
+
+            <view class="topic-footer">
+              <text class="member-nicktime">{{item.updatedAt}}</text>
+              <view class="footer-like">
+                <image style="width: 30rpx; height: 30rpx" src="../../../images/home_icon_like.png"></image>
+                <text class="footer-mark">{{item.mark}}</text>
+              </view>
+            </view>
+
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <view>
+    <modal title="删除提示" hidden="{{modalHidden}}" confirm-text="确定" cancel-text="取消" bindconfirm="modalBindaconfirm" bindcancel="modalBindcancel">是否删除此条发布信息</modal>
+  </view>
+</view>

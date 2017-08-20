@@ -1,0 +1,27 @@
+/* myWork.wxss */
+
+.title_work {
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.works {
+  border-top: 1px solid #ddd;
+  background: #eee;
+}
+
+.works-item {
+  padding: 30rpx;
+  border-left: 5px solid #eee;
+  border-right: 5px solid #eee;
+  border-bottom: 4px solid #eee;
+  border-top: 4px solid #eee;
+  background: #fff;
+}
+
+.work-image {
+  width: 100%;
+  margin-bottom: 40rpx;
+}

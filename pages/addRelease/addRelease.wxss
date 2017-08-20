@@ -1,0 +1,6 @@
+/* addRelease.wxss */
+.weui-uploader_my{
+  display: flex;
+  flex-direction: column;
+  /* flex-wrap: wrap; */
+}

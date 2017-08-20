@@ -1,0 +1,8 @@
+/* mySetting.wxss */
+
+.my_cell{
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+}
