@@ -14,8 +14,8 @@
     "pages/myAgree/myAgree",
     "pages/appSYS/appSYS",
     "pages/contactUS/contactUS",
-    "pages/aboutUS/aboutUS",
-    "pages/userRelease/userRelease"
+    "pages/userRelease/userRelease",
+    "pages/aboutUS/aboutUS"
   ],
   "window": {
     "backgroundTextStyle": "light",

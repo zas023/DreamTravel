@@ -1,6 +1,8 @@
 /* addRelease.wxss */
 .weui-uploader_my{
   display: flex;
-  flex-direction: column;
-  /* flex-wrap: wrap; */
+  flex-direction: row;
+  flex-wrap: wrap; 
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
 }

@@ -80,8 +80,11 @@
   </view>
 
 
-  <view class="weui-uploader_my" wx:for="{{imgPaths}}">
-    <image class="weui-uploader__img" src="{{item}}" catchtap="chooseImage"></image>
+  <view class="weui-uploader_my">
+    <view wx:for="{{imgPaths}}">
+      <image class="weui-uploader__img" id="{{index}}" style="margin-right:5rpx; margin-left:5rpx"  src="{{item}}" catchtap="deletImage"></image>
+    </view>
+     <image class="weui-uploader__img" style="margin-right:5rpx; margin-left:5rpx"  src="../../images/upload_work_btn_image.png" catchtap="chooseImage"></image>
   </view>
 
 

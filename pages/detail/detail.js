@@ -12,12 +12,14 @@ Page({
     yuepai: null,
     user:null,
     works: [],
+    BigImage:null,
+    BigImageHidden:true,
 
     actionSheetHidden: true,
     actionSheetItems: ['微信号', 'QQ', '电话'],
 
     hidden: false,
-
+    
   },
 
   //响应预约button
@@ -62,7 +64,14 @@ Page({
     })
   },
 
-  
+  //响应预览图片
+  // clickImage: function (e) {
+  //   console.log(e);
+  //   this.setData({
+  //     BigImage: this.data.works[0].get('image'),
+  //     BigImageHidden: !this.data.BigImageHidden
+  //   })
+  // },
 
   /**
    * 生命周期函数--监听页面加载

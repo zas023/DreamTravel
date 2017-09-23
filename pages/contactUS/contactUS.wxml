@@ -1,9 +1,3 @@
-<!--contactUS.wxml-->
-<!-- <view class="top">
-<text class="iconfont icon-liuyan"></text>
-<image mode="widthFix" src="../../images/ly_logo.png"></image>
-</view> -->
-
 <view class="page_body">
     <view class="page_body_msg">
         联系微信客服：zhouas666
@@ -13,11 +7,11 @@
         </view>
     </view>
     <view class="page_body_msg">
-        拨打客服热线：400-5666-225
-        <view class="page_body_msg_bh" data-tel="400-5666-225" bindtap="boHao">点击拨号</view>
+        拨打客服热线：18983236441
+        <view class="page_body_msg_bh" data-tel="18983236441" bindtap="boHao">点击拨号</view>
     </view>
     <input bindfocus="hideEwm" bindinput="setInput" type="number" id="" maxlength="11" placeholder="请输入您的电话，方便后期联系您（选填）" />
     <textarea bindfocus="hideEwm" bindinput="setTextarea"placeholder="请输入您想说的话"  />
 
-    <view class="send_btn f_28" bindtap="sendMsg">提交留言</view>
+    <button size="default" bindtap="sendMsg">提交留言</button>
 </view>

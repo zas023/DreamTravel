@@ -25,11 +25,11 @@
     <view class="weui-cell__hd">
       <view class="weui-label">生日</view>
     </view>
-    <view class="weui-cell__bd">
+     <view class="weui-cell__bd"> 
       <picker mode="date" value="{{dateValue}}" start="1949-01-01" end="2100-12-12" bindchange="datePickerBindchange">
-        {{dateValue}}
+        <view class="weui-select weui-select_in-select-after">{{dateValue}}</view>
       </picker>
-    </view>
+     </view> 
   </view>
 
   <view class="weui-cell weui-cell_input">
@@ -87,5 +87,6 @@
     </view>
   </view>
 </view>
-<!-- disabled="{{!(userWechat!=''||userQQ!=''||userPhone!='')||buttonLoading ? true : false}}" -->
-<button type="primary" size="default" loading="{{buttonLoading}}" bindtap="bindSubmit"> 提交修改 </button>
+
+<button type="primary" size="default" loading="{{buttonLoading}}" bindtap="bindSubmit"
+ disabled="{{(userWechat==''||userWechat==null)&&(userQQ==''||userQQ==null)&&(userPhone==''||userPhone==null)&&(!buttonLoading)}}" > 提交修改 </button>

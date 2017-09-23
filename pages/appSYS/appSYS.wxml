@@ -16,7 +16,7 @@
       <view class="weui-label">手机号</view>
     </view>
     <view class="weui-cell__bd">
-      <input class="weui-input" placeholder="能够联系到您的手机号" bindinput="bindPhoneInput" value="{{userPhone}}" type="digit"/>
+      <input class="weui-input" placeholder="能够联系到您的手机号" bindinput="bindPhoneInput" value="{{userPhone}}" type="digit" />
     </view>
   </view>
 
@@ -25,16 +25,7 @@
       <view class="weui-label">QQ号</view>
     </view>
     <view class="weui-cell__bd">
-      <input class="weui-input" placeholder="能够联系到您的QQ号" bindinput="bindQQInput" value="{{userQQ}}" type="digit"/>
-    </view>
-  </view>
-
-  <view class="weui-cell weui-cell_input">
-    <view class="weui-cell__hd">
-      <view class="weui-label">身份证</view>
-    </view>
-    <view class="weui-cell__bd">
-      <input class="weui-input" placeholder="仅支持二代身份证号码" bindinput="bindIDNumberInput" value="{{idNumber}}" type="idcard"/>
+      <input class="weui-input" placeholder="能够联系到您的QQ号" bindinput="bindQQInput" value="{{userQQ}}" type="digit" />
     </view>
   </view>
 
@@ -60,9 +51,9 @@
     </view>
     <view class="my_cell">
       <input class="weui-input" placeholder="请输入你的接单城市" bindinput="binduserCityInput" value="{{userCity}}" />
-       <button  size="mini" bindtap="binduserCityTap">选择</button>
+      <button size="mini" bindtap="binduserCityTap">选择</button>
     </view>
-  </view> 
+  </view>
 
   <view class="weui-cell weui-cell_select">
     <view class="weui-cell__hd weui-cell__hd_in-select-after">
@@ -75,17 +66,6 @@
     </view>
   </view>
 
-  <view class="weui-cell">
-    <view class="weui-cell__hd">
-      <view class="weui-label">手持证件照</view>
-    </view>
-    <view class="weui-cell__bd">
-      <image class="weui-uploader__img" src="{{idCardImg}}" catchtap="chooseImage"></image>
-    </view>
-  </view>
-  <view class="weui-cells__title">注意：请按照样例提供的方式进行拍摄，照片中以下信息必须真实有效，且清晰可见。</view>
-  <view class="weui-cells__title">1.手持证件人的五官。</view>
-  <view class="weui-cells__title">2.证件上所有信息。</view>
   <view class="weui-cells__title"></view>
   <view class="weui-cell weui-cell_input">
     <view class="weui-cell__hd">

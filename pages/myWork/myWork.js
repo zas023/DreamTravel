@@ -106,7 +106,7 @@ Page({
     var Work = Bmob.Object.extend("Work");
     //创建查询对象，入口参数是对象类的实例
     var work = new Bmob.Query(Work);
-    work.equalTo("author", app.globalData.userInfo.nickName);
+    work.equalTo("author", Bmob.User.current().get('username'));
     //查询单条数据，第一个参数是这条数据的objectId值
     work.descending("updatedAt");
     work.find({

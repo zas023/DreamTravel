@@ -79,21 +79,6 @@ Page({
                   var userInfo = result.userInfo
                   var nickName = userInfo.nickName
 
-                  Bmob.User.logIn(nickName, userData.openid, {
-                    success: function (user) {
-                      // Do stuff after successful login.
-                      console.log("登录成功")
-
-                      that.navigateBackFunc();
-                      return;
-                    },
-                    error: function (user, error) {
-                      // The login failed. Check error to see why.
-                      console.log("登录失败")
-                      console.log(error)
-                    }
-                  });
-
                   var user = new Bmob.User();//开始注册用户
                   user.set("username", nickName);
                   user.set("password", userData.openid);//因为密码必须提供，但是微信直接登录小程序是没有密码的，所以用openId作为唯一密码

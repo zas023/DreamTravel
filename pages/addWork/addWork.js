@@ -47,11 +47,13 @@ Page({
 
   bindSaveTap: function () {
 
+    var currentUser = Bmob.User.current();
+
     if (this.data.imgUrl) {
       var Work = Bmob.Object.extend("Work");
       var work = new Work();
       console.log(this.data.imgUrl);
-      work.set("author", app.globalData.userInfo.nickName);
+      work.set("author", currentUser.get('username'));
       work.set("image", this.data.imgUrl);
       work.set("content", this.data.inputDes);
       work.set("comment", '0');

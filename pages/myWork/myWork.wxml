@@ -11,7 +11,7 @@
 
         <image class="work-image" src="{{item.image}}"></image>
 
-        <view class="reply-content">
+        <view class="reply-content" wx:if="{{item.content}}">
           {{item.content}}
         </view>
       </view>

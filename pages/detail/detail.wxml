@@ -1,5 +1,5 @@
 <!--detail.wxml-->
-<view class="container">
+<view class="container" hidden="{{!BigImageHidden}}">
   <view class="topic-detail">
     <!-- 用户信息 -->
     <view class="topic-owner">
@@ -108,11 +108,11 @@
 
   <view class="works">
     <block wx:for="{{works}}">
-      <view class="works-item" id="{{item.id}}">
+      <view class="works-item" id="{{key}}">
 
-        <image class="work-image" src="{{item.image}}"></image>
+        <image bindtap="clickImage" class="work-image" src="{{item.image}}"></image>
 
-        <view class="reply-content">
+        <view class="reply-content" wx:if="{{item.content}}">
           {{item.content}}
         </view>
       </view>
@@ -141,4 +141,7 @@
     <!--自动隐藏action-sheet-->
     <action-sheet-cancel>取消</action-sheet-cancel>
   </action-sheet>
+  
 </view>
+
+ <!-- <image bindtap="clickImage" src="{{BigImage}}" hidden="{{BigImageHidden}}"></image> -->

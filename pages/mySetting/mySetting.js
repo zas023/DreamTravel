@@ -1,6 +1,5 @@
 // mySetting.js
 var Bmob = require('../../utils/bmob.js');
-var app = getApp();
 Page({
 
   /**
@@ -8,20 +7,21 @@ Page({
    */
   data: {
     user: null,
-    userGender:0,
-    gender:["男","女"],
-    dateValue:'',
-    realName:null,
-    userCity:null,
-    email:null,
-    genderIndex:0,
-    qianming:null,
-    userWechat:null,
-    userQQ:null,
-    userPhone:null,
+    userGender: 0,
+    gender: ["男", "女"],
+    dateValue: '',
+    realName: null,
+    userCity: null,
+    email: null,
+    genderIndex: 0,
+    qianming: null,
+    userWechat: null,
+    userQQ: null,
+    userPhone: null,
+    buttonLoading:false
   },
   //监听真实姓名
-  bindRealNameInput:function(e) {
+  bindRealNameInput: function (e) {
     this.data.realName = e.detail.value;
   },
   //监听性别
@@ -36,7 +36,6 @@ Page({
     this.setData({
       dateValue: e.detail.value
     })
-    console.log(e)
   },
   //监听邮箱
   bindEmailInput: function (e) {
@@ -44,25 +43,34 @@ Page({
   },
 
   //监听个性签名
-  bindQianInput:function(e){
+  bindQianInput: function (e) {
     this.data.qianming = e.detail.value;
   },
   //监听微信号
   bindWechatInput: function (e) {
-    this.data.userWechat = e.detail.value;
+    //采用setData的方法能实时更新wxml中的数据
+    this.setData({
+      userWechat: e.detail.value
+    })
+    // this.data.userWechat = e.detail.value;
   },
   //监听QQ
   bindQQInput: function (e) {
-    this.data.userQQ = e.detail.value;
+    this.setData({
+      userQQ: e.detail.value
+    })
+    // this.data.userQQ = e.detail.value;
   },
   //监听手机号
   bindPhoneInput: function (e) {
-    this.data.userPhone = e.detail.value;
+    this.setData({
+      userPhone: e.detail.value
+    })
+    // this.data.userPhone = e.detail.value;
   },
-  
+
   //城市选择器
   binduserCityTap: function (e) {
-    // this.data.userCity = e.detail.value;
     wx.navigateTo({
       url: '../selectCity/selectCity',
       success: function (res) { },
@@ -72,25 +80,25 @@ Page({
   },
   //保存修改
   bindSubmit: function () {
+    //保存修改按钮显示加载动画
     var that = this;
     this.setData({
       buttonLoading: true
     })
-    var User = Bmob.Object.extend("_User");
-    var query = new Bmob.Query(User);
-    query.get(Bmob.User.current().id, {
+    //将变更信息添加到当前用户
+    var result = Bmob.User.current();
+    result.set("realName", that.data.realName);
+    result.set("gender", that.data.userGender);
+    result.set("email", that.data.email);
+    result.set("qianming", that.data.qianming);
+    result.set("city", that.data.userCity);
+    result.set("birthday", that.data.dateValue);
+    result.set("wechatId", that.data.userWechat);
+    result.set("QQ", that.data.userQQ);
+    result.set("mobilePhoneNumber", that.data.userPhone);
+    //保存对当前用户的修改
+    result.save(null, {
       success: function (result) {
-        console.log('点击按钮', result)
-        result.set("realName", that.data.realName);
-        result.set("gender", that.data.userGender);
-        result.set("email", that.data.email);
-        result.set("qianming", that.data.qianming);
-        result.set("city", that.data.userCity);
-        result.set("birthday", that.data.dateValue);
-        result.set("wechatId", that.data.userWechat);
-        result.set("QQ", that.data.userQQ);
-        result.set("mobilePhoneNumber", that.data.userPhone);
-        result.save();
         that.setData({
           buttonLoading: false
         });
@@ -99,13 +107,9 @@ Page({
           icon: 'success',
           duration: 3000
         })
-      },
-      error: function (object, error) {
-        console.log('失败', object, error)
       }
     })
   },
-
 
   /**
    * 生命周期函数--监听页面加载
@@ -113,6 +117,21 @@ Page({
   onLoad: function (options) {
     //获取原始账号信息
     var currentUser = Bmob.User.current();
+    if (!currentUser){
+      wx.showModal({
+        title: '提示',
+        content: '请先登陆',
+        showCancel: false,
+        success: function (res) {
+          if (res.confirm) {
+            wx.navigateBack({
+              
+            });
+          }
+        }
+      });
+    }
+    //设置初始数据，将用户原有数据填入表单
     this.setData({
       user: currentUser,
       userGender: currentUser.get("gender"),
@@ -125,6 +144,9 @@ Page({
       qianming: currentUser.get("qianming"),
       userCity: currentUser.get("city"),
     })
+      console.log(this.data.userWechat)
+    console.log(this.data.userQQ)
+    console.log(this.data.userPhone)
   },
-  
+
 })

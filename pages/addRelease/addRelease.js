@@ -18,7 +18,7 @@ Page({
     filmIndex:0,
     custom: ['不提供', '提供'],
     customIndex:0,
-    imgPaths: ['../../images/upload_work_btn_image.png',],
+    imgPaths: [],
     uploadPaths: [],
     buttonLoading: false,
   },
@@ -78,7 +78,10 @@ Page({
       });
       return;
     }
-
+    
+    wx.showLoading({
+      title: '正在提交...',
+    })
     var YuePai = Bmob.Object.extend("YuePai");
 
     var yuepai = new YuePai();
@@ -99,6 +102,7 @@ Page({
 
     //添加数据，第一个入口参数是null
     yuepai.save(null, {
+      
       success: function (result) {
         // 添加成功
         var User = Bmob.Object.extend("_User");
@@ -112,7 +116,7 @@ Page({
             console.log('失败', object, error)
           }
         });
-
+        wx.hideLoading();
         wx.showToast({
           title: '成功',
           icon: 'success',
@@ -127,12 +131,58 @@ Page({
       error: function (result, error) {
         // 添加失败
         console.log('创建失败', error);
+        wx.hideLoading();
         wx.showToast({
           title: '添加失败',
           duration: 3000,
         })
       }
     });
+  },
+  //删除已选图片
+  deletImage: function (e) {
+    var that = this;
+    var id = e.currentTarget.id;
+    app.requestDetailid = id;
+
+    wx.showModal({
+      title: '提示',
+      content: '是否删除此照片',
+      showCancel: true,
+      success: function (res) {
+        if (res.confirm) {
+          //移除要删除的本地图片路径
+          var tempList = that.data.imgPaths;
+          var tempDel = that.data.imgPaths[e.currentTarget.id];
+          that.removeByValue(tempList, tempDel);
+          //移除要删除的服务器图片路径
+          var tempList1 = that.data.uploadPaths;
+          var tempDel1 = that.data.uploadPaths[e.currentTarget.id];
+          that.removeByValue(tempList1, tempDel1);
+          // //删除服务器上的此图片
+          // var path = tempDel1;
+          // var s = new Bmob.Files.del(path).then(function (res) {
+          //   if (res.msg == "ok") {
+          //     console.log('图片删除成功');
+          //   }
+          // },);
+          //更新数据
+          that.setData({
+            imgPaths: tempList,
+            uploadPaths: tempList1,
+          })
+        }
+      }
+    });
+  },
+  //移除数组中的某一项
+  removeByValue: function (arr, val) {
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i] == val) {
+        arr.splice(i, 1);
+        break;
+      }
+    }
   },
 
   //选择图片
@@ -150,7 +200,7 @@ Page({
         var tempFilePaths = res.tempFilePaths;
 
         var imgLength = tempFilePaths.length;
-        var urlArr = new Array();
+        var urlArr = that.data.uploadPaths;
         if (imgLength > 0) {
 
           var timestamp = (new Date()).valueOf();
@@ -171,6 +221,7 @@ Page({
               var url = res.url();
 
               urlArr.push(res.url());
+
               j++;
               that.setData({
                 uploadPaths: urlArr

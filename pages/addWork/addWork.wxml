@@ -1,16 +1,19 @@
 <!--addWork.wxml-->
 <view class="container">
   <form bindsubmit="bindSaveTap" class="container">
-  <image class="image" catchtap="chooseImage" src="{{imgPath}}"></image>
- 
-  <view class="weui-cells__title">描述</view>
-  <view class="weui-cells weui-cells_form">
-    <view class="weui-cell">
-      <view class="weui-cell__bd">
-        <textarea class="weui-textarea"  auto-height="true" placeholder="请输入内容" bindinput="inputDes" />
+
+    <view class="weui-cells__title">tips:每次只能选择一张照片作为作品</view>
+
+    <image class="image" catchtap="chooseImage" src="{{imgPath}}"></image>
+
+    <view class="weui-cells__title">描述</view>
+    <view class="weui-cells weui-cells_form">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <textarea class="weui-textarea" auto-height="true" placeholder="请输入内容" bindinput="inputDes" />
+        </view>
       </view>
     </view>
-  </view>
-  <button style="primary" size="default" formType="submit" >上传</button>
+    <button style="primary" size="default" formType="submit">上传</button>
   </form>
 </view>

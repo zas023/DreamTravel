@@ -1,8 +1,8 @@
 <!--myRelease.wxml-->
-<view class="container">
+<view class="container" hidden="{{!editHidden}}">
   <view class="title_work">
     <image style="width: 25px; height: 25px" src="../../../images/icon_works.png"></image>
-    <text style="margin-left: 20rpx">我的发布({{yuepais.length}})</text>
+    <text style="margin-left: 20rpx">我的发布({{yuepais.length}})  tips:长按编辑</text>
   </view>
   <view class="topic-main">
     <block wx:for="{{yuepais}}" wx:key="myId" wx:for-index="key">
@@ -48,8 +48,94 @@
       </view>
     </block>
   </view>
-
-  <view>
-    <modal title="删除提示" hidden="{{modalHidden}}" confirm-text="确定" cancel-text="取消" bindconfirm="modalBindaconfirm" bindcancel="modalBindcancel">是否删除此条发布信息</modal>
-  </view>
 </view>
+<!-------------------------------------------!-->
+<form bindsubmit="formSubmit" hidden="{{editHidden}}">
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">标题</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="请输入标题" bindinput="inputTitle" value="{{title}}" />
+      </view>
+    </view>
+
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">单价</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="请输入金额" bindinput="inputCost" type="digit" value="{{cost}}" />
+      </view>
+    </view>
+
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">单位</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="请输入单位" bindinput="inputUnit" value="{{unit}}" />
+      </view>
+    </view>
+
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">底片数量</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="请输入底片数量" bindinput="inputPhotoNum" type="digit" value="{{photoNum}}" />
+      </view>
+    </view>
+
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">精修数量</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="请输入精修数量" bindinput="inputPsNum" type="digit" value="{{psNum}}" />
+      </view>
+    </view>
+
+    <view class="weui-cell weui-cell_select">
+      <view class="weui-cell__hd weui-cell__hd_in-select-after">
+        <view class="weui-label">视频</view>
+      </view>
+      <view class="weui-cell__bd">
+        <picker bindchange="bindFilmChange" value="{{FilmIndex}}" range="{{film}}">
+          <view class="weui-select weui-select_in-select-after">{{film[filmIndex]}}</view>
+        </picker>
+      </view>
+    </view>
+
+    <view class="weui-cell weui-cell_select">
+      <view class="weui-cell__hd weui-cell__hd_in-select-after">
+        <view class="weui-label">服装</view>
+      </view>
+      <view class="weui-cell__bd">
+        <picker bindchange="bindCustomChange" value="{{customIndex}}" range="{{custom}}">
+          <view class="weui-select weui-select_in-select-after">{{custom[customIndex]}}</view>
+        </picker>
+      </view>
+    </view>
+
+  </view>
+
+  <view class="weui-cells__title"></view>
+  <view class="weui-cells weui-cells_form">
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <textarea class="weui-textarea" auto-height="true" placeholder="请输入内容" bindinput="inputContent" value="{{content}}" />
+      </view>
+    </view>
+  </view>
+  <view class="weui-uploader_my">
+    <view wx:for="{{imgPaths}}">
+      <image class="weui-uploader__img" id="{{index}}" style="margin-right:5rpx; margin-left:5rpx"  src="{{item}}" catchtap="deletImage"></image>
+    </view>
+     <image class="weui-uploader__img" style="margin-right:5rpx; margin-left:5rpx"  src="../../images/upload_work_btn_image.png" catchtap="chooseImage"></image>
+  </view>
+  <button type="primary" size="default" loading="{{buttonLoading}}" bindtap="bindSubmit"> 保存修改 </button>
+</form>
+<view class="classname"></view>
+<button hidden="{{editHidden}}" type="default" style="margin-top: 20rpx" size="default" bindtap="bindBack"> 返回 </button>
