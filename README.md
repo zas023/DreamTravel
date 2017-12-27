@@ -1,5 +1,8 @@
 # DreamTravel × 微信小程序
 
+### 扫码体验
+<img width="200" height="200" src="https://github.com/zas023/DreamTravel/blob/master/screenshots/gh_a80a33944e4e_1280.jpg">
+
 ### 版本日志
 v0.4.1:2017.09.22
 ##### 1.修复用户发布信息计数；
