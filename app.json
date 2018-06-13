@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/latest/latest",
+    "pages/index/index",
     "pages/hotest/hotest",
     "pages/detail/detail",
     "pages/my/my",
@@ -22,7 +23,7 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "旅拍",
     "navigationBarTextStyle": "black",
-    "enablePullDownRefresh": "true"
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "color": "#000",
