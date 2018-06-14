@@ -1,54 +1,47 @@
 {
   "pages": [
-    "pages/latest/latest",
+    "pages/start/start",
     "pages/index/index",
-    "pages/hotest/hotest",
-    "pages/detail/detail",
-    "pages/my/my",
-    "pages/addRelease/addRelease",
-    "pages/addWork/addWork",
-    "pages/signup/signup",
-    "pages/selectCity/selectCity",
-    "pages/mySetting/mySetting",
-    "pages/myRelease/myRelease",
-    "pages/myWork/myWork",
-    "pages/myAgree/myAgree",
-    "pages/appSYS/appSYS",
-    "pages/contactUS/contactUS",
-    "pages/userRelease/userRelease",
-    "pages/aboutUS/aboutUS"
+    "pages/logs/logs",
+    "pages/post/post",
+    "pages/message/message",
+    "pages/authorize/authorize",
+    "pages/detail/detail"
   ],
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#118fff",
     "navigationBarTitleText": "旅拍",
-    "navigationBarTextStyle": "black",
-    "enablePullDownRefresh": true
+    "backgroundColor": "#fff"
   },
   "tabBar": {
-    "color": "#000",
-    "selectedColor": "#56abe4",
-    "backgroundColor": "#fff",
+    "color": "#9BABBA",
+    "selectedColor": "#495056",
     "borderStyle": "white",
+    "backgroundColor": "#ffffff",
     "list": [
       {
-        "pagePath": "pages/latest/latest",
-        "text": "最新",
-        "iconPath": "images/latest.png",
-        "selectedIconPath": "images/lastest_on.png"
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tar-home.png",
+        "selectedIconPath": "images/tar-home-on.png"
       },
       {
-        "pagePath": "pages/hotest/hotest",
-        "text": "最热",
-        "iconPath": "images/hotest.png",
-        "selectedIconPath": "images/hotest_on.png"
+        "pagePath": "pages/post/post",
+        "text": "发起",
+        "iconPath": "images/tar-about.png",
+        "selectedIconPath": "images/tar-about-on.png"
       },
       {
-        "pagePath": "pages/my/my",
-        "text": "我的",
-        "iconPath": "images/node.png",
-        "selectedIconPath": "images/node_on.png"
+        "pagePath": "pages/message/message",
+        "text": "动态",
+        "iconPath": "images/tar-topic.png",
+        "selectedIconPath": "images/tar-topic-on.png"
       }
     ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
   }
 }

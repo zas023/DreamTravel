@@ -13,7 +13,8 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.0.9",
 	"appid": "wxde7faa054cfa3649",
-	"projectname": "traveler",
+	"projectname": "dreamtravel",
+	"isGameTourist": false,
 	"condition": {
 		"search": {
 			"current": -1,

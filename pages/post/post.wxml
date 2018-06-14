@@ -1,0 +1,142 @@
+<!-- 新建约拍 -->
+<view class="container">
+  <form bindsubmit="submitForm">
+    <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{TopTips}}</view>
+    <view class="mod-a">
+      <!-- 约拍主题 -->
+      <view class="mod t-name">
+        <text class="key">标题</text>
+        <input name="title" class="input" maxlength="100" placeholder="请输入标题" value="{{title}}" />
+        <image class="arrow-r" src="/images/arrow-r-0.png"></image>
+      </view>
+    </view>
+
+    <view class="mod-a mt20">
+      <!-- 约拍类别 -->
+      <view class="mod t-sign-time">
+        <text class="key">类别</text>
+        <picker bindchange="bindTypeChange" value="{{typeIndex}}" range="{{types}}">
+          <view class="value" name="types">{{types[typeIndex]}}
+            <image class="arrow-r" src="/images/arrow-r-0.png"></image>
+          </view>
+        </picker>
+      </view>
+      <!-- 约拍地点 -->
+      <view class="mod t-address" bindtap="chooseLocation">
+        <text class="key">地点</text>
+        <text name="address" class="value" bindtap="addressChange" value="{{address}}">{{address}}</text>
+        <image class="arrow-r" src="/images/arrow-r-0.png"></image>
+      </view>
+      <!-- 有效时间 -->
+      <view class="mod t-sign-time" wx:if="{{showTime}}">
+        <text class="key">有效时间</text>
+        <picker mode="date" value="{{date}}" start="{{date}}" end="2020-09-01" bindchange="bindDateChange">
+          <view class="value" name="endtime">{{date}}
+            <image class="arrow-r" src="/images/arrow-r-0.png"></image>
+          </view>
+        </picker>
+      </view>
+      <!-- 约拍价格 -->
+      <view class="mod t-sign-time">
+        <text class="key">价格</text>
+        <input name="price" class="input" maxlength="100" placeholder="请输入价格" value="{{price}}" type="digit"/>
+        <image class="arrow-r" src="/images/arrow-r-0.png"></image>
+      </view>
+      <!-- 底片数量 -->
+      <view class="mod t-sign-time">
+        <text class="key">底片</text>
+        <input name="photoNum" class="input" maxlength="100" placeholder="请输入底片数量" value="{{photoNum}}" type="digit" />
+        <image class="arrow-r" src="/images/arrow-r-0.png"></image>
+      </view>
+      <!-- 精修数量 -->
+      <view class="mod t-sign-time">
+        <text class="key">精修</text>
+        <input name="psNum" class="input" maxlength="100" placeholder="请输入精修数量" value="{{psNum}}" type="digit" />
+        <image class="arrow-r" src="/images/arrow-r-0.png"></image>
+      </view>
+
+      <view class="mod  t-early">
+        <text class="key">支持视频</text>
+        <switch type="switch" bindchange="switch1Change" name="switchFilm" />
+      </view>
+      <view class="mod  t-early">
+        <text class="key">提供服饰</text>
+        <switch type="switch" bindchange="switch1Change" name="switchCustom" />
+      </view>
+      <!-- 限制人数 -->
+      <!-- <view class="mod  t-early">
+        <text class="key">限制人数</text>
+        <switch type="switch" bindchange="switch1Change" name="switchPeope" />
+      </view> -->
+
+      <!-- 人数设置 -->
+      <!-- <view wx:if="{{peopleHide}}">
+        <view class="mod t-name">
+          <text class="key">人数设置</text>
+          <input name="peoplenum" type="number" class="input" maxlength="100" placeholder='请输入人数' value="{{peoplenum}}" />
+          <image class="arrow-r" src="/images/arrow-r-0.png"></image>
+        </view>
+      </view> -->
+    </view>
+
+    <!-- 活动内容 -->
+    <view class="mod-a mt20">
+      <view class="mod-big my-nick">
+        <textarea name="content" class="weui-textarea" placeholder="请输入活动内容" value="{{content}}" style="height: 7em" bindinput="bindTextAreaChange" maxlength="{{noteMaxLen}}" />
+        <view class="chnumber">{{noteNowLen}}/{{noteMaxLen}}</view>
+      </view>
+    </view>
+
+    <!-- 约拍照片 -->
+    <view class="mod-a mt20">
+      <text class="key">添加图片</text>
+    </view>
+    <view class="weui-uploader__bd">
+      <view class="weui-uploader__files">
+        <block wx:for="{{imgPaths}}" wx:for-item="image">
+          <view class="weui-uploader__file">
+            <image class="weui-uploader__img" src="{{image}}" data-src="{{image}}" bindtap="previewImage"></image>
+          </view>
+        </block>
+      </view>
+      <view class="weui-uploader__input-box true">
+        <view class="weui-uploader__input" bindtap="chooseImage"></view>
+      </view>
+    </view>
+
+
+    <view class="mod-a mt20">
+      <checkbox-group bindchange="bindAgreeChange">
+        <label class="weui-agree" for="weuiAgree">
+          <view class="weui-agree__text">
+            <checkbox class="weui-agree__checkbox" id="weuiAgree" value="agree" checked="{{isAgree}}" />
+            <view class="weui-agree__checkbox-icon">
+              <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9" wx:if="{{isAgree}}"></icon>
+            </view>
+            阅读并同意
+            <view bindtap="showNotice" class="weui-agree__link">
+              《发起须知》</view>
+          </view>
+        </label>
+      </checkbox-group>
+      <view class="submit-btn">
+        <button class='button' loading="{{isLoading}}" hover-start-time="200" disabled="{{isdisabled}}" formType="submit">发起</button>
+      </view>
+    </view>
+  </form>
+</view>
+
+<view class="notice" id="notice" wx:if="{{notice_status}}" bindtap="tapNotice">
+  <view class="box">
+    <view class="box-hd">
+      <text class="box-title">发起须知</text>
+      <image class="box-close" src="/images/more/close.png" bindtap="hideNotice"></image>
+    </view>
+    <view class="box-bd">
+      <view class="notice-q">发起内容的有哪些限制？</view>
+      <view class="notice-a">
+        <text>发起内容应该在法律允许的范围内，如果发起内容违反了相关的法律法规，一经发现，本软件有权限对该发起进行删除操作</text>
+      </view>
+    </view>
+  </view>
+</view>

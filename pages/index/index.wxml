@@ -1,2 +1,75 @@
-<!--pages/index/index.wxml-->
-<text>pages/index/index.wxml</text>
+<!-- index.wxml -->
+<view class="mpage {{!ui.tStart? 'withAnimate': ''}}" style="left:{{ui.offsetLeft}}px;width: {{ui.windowWidth}}px;" bindtouchstart="handlerStart" catchtouchmove="handlerMove" bindtouchcancel="handlerCancel" bindtouchend="handlerEnd" bindtap="handlerPageTap">
+  <scroll-view bindscroll="" scroll-y style="height: 100%;">
+    <view class="search">
+      <view catchtap="handlerAvatarTap" class="avatar">
+        <image src="{{userInfo.avatarUrl}}"></image>
+      </view>
+      <view class="search-wrapper {{show_search_back?'search-wrapper-blue':''}}">
+        <view class="search-button" bindtap="click_search">
+          <view class="iconfont icon-sousuo"></view>
+          搜索约拍
+        </view>
+      </view>
+      <view bindtap='gotoMap' class="avatar_r">
+        <image src="/images/map7.png"></image>
+      </view>
+    </view>
+    <!-- 活动详情界面 -->
+     <swiper duration="300" interval="5000" autoplay="{{autoplay}}" bindchange="onSwiperChange" current="{{ curIndex }}" style="overflow: visible;">
+      <swiper-item wx:for="{{ postsShowSwiperList }}" style="overflow: visible;" wx:key="actpic">
+        <image src="{{ item.images[0] }}" style="width: 100%; height: 300rpx; background: #fff; box-shadow: 0 10rpx 15rpx rgba(0, 0, 0, .1); -webkit-transform: scale({{ curIndex == index ? 0.9 : 0.65 }}) translate({{ (curIndex == index - 1 || curIndex == index + 1) ? (curIndex - index) * 30 : 0 }}%, 0); -webkit-transition: .3s; position: relative;"
+          data-actid="{{item.id}}" data-pubid='{{item.publisherId}}' bindtap="click_activity" mode="aspectFill" />
+        <view class="horizontal">
+          <view class="tag recommend">最热约拍</view>
+          <text class="title">{{item.title}}</text>
+        </view>
+      </swiper-item>
+    </swiper> 
+
+    <view class="activities">
+      <view class="subtitle">
+        <image src="/images/ic_activity.png" mode="aspectFit" />
+        <text>最新约拍</text>
+        <space/>
+        <button bindtap="refresh">点击刷新</button>
+      </view>
+
+      <view wx:for="{{postsList}}" wx:key="id" wx:for-index="key">
+      <view class="activity" id="{{key}}" bindtap="click_activity">
+        <view class="list_header">
+          <view class="list_header_left">
+            <image mode="aspectFill" src="{{item.user.touxiang}}"></image>
+            <view>{{item.user.username}}</view>
+          </view>
+          <view class="content-date list_header_right">
+            <image src="/images/calendar.png"></image>
+            <text>{{item.viewNum}}</text>
+            <image src="/images/comments.png"></image>
+            <text class="">{{item.commentNum}}</text>
+            <image src="/images/home-like.png"></image>
+            <text class="">{{item.likeNum}}</text>
+          </view>
+        </view>
+        <view class="horizontal">
+          <view class="tag tag_{{item.type}}">{{item.typeName}}</view>
+          <text class="title">{{item.title}}</text>
+        </view>
+        <image mode="aspectFill" class="photo" src="{{item.images[0]}}" wx:if="{{item.images}}" data-actid="{{item.id}}" data-pubid='{{item.user.id}}'></image>
+        <text class="intro">{{item.content}}</text>
+        <text class="time">发布价格：{{ item.cost }} 元</text>
+        <text class="location">约拍地点：{{ item.address }}</text> 
+         <text class="time">发布时间：{{ item.createdAt }}</text>
+      </view>
+    </view>
+    </view>
+
+    <view class="loadingmore">
+      <view wx:if="{{!isEmpty}}">
+        <button class="more-button" formType="submit" size="mini" bindtap="loadMore">加载更多...</button>
+      </view>
+      <view class="no-more" wx:if="{{isEmpty}}">---无更多活动---</view>
+    </view>
+    <tab-shadow/>
+  </scroll-view>
+</view>
