@@ -57,7 +57,7 @@
         </view>
         <image mode="aspectFill" class="photo" src="{{item.images[0]}}" wx:if="{{item.images}}" data-actid="{{item.id}}" data-pubid='{{item.user.id}}'></image>
         <text class="intro">{{item.content}}</text>
-        <text class="time">发布价格：{{ item.cost }} 元</text>
+        <text class="time">发布价格：{{ item.price }} 元</text>
         <text class="location">约拍地点：{{ item.address }}</text> 
          <text class="time">发布时间：{{ item.createdAt }}</text>
       </view>

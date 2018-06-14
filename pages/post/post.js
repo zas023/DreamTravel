@@ -351,7 +351,7 @@ Page({
           diary.set("title", title);
           diary.set("endtime", endtime);
           diary.set("type", acttype + "");
-          diary.set("cost", price);
+          diary.set("price", price);
           diary.set("address", address);
           diary.set("longitude", longitude);//经度
           diary.set("latitude", latitude);//纬度

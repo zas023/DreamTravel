@@ -6,11 +6,11 @@
           <text>{{item.title}}</text>
         </view>
         <view class="content-date">
-          <image src="/static/images/calendar.png"></image>
+          <image src="/images/calendar.png"></image>
           <text>{{item.pubtime}}</text>
-          <image src="/static/images/comments.png"></image>
+          <image src="/images/comments.png"></image>
             <text class="">{{item.commentnum}}</text>
-            <image src="/static/images/home-like.png"></image>
+            <image src="/images/home-like.png"></image>
             <text class="">{{item.likenum}}</text>        
         </view>
         <image src="{{item.actPic}}" mode="aspectFill" class="cover"></image>

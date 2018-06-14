@@ -255,14 +255,11 @@ Page({
   // 点击活动进入活动详情页面
   click_activity: function (e) {
     if (!this.buttonClicked) {
-      //util.buttonClicked(this);
       console.log(e)
-      let actid = e.currentTarget.dataset.actid;
-      let pubid = e.currentTarget.dataset.pubid;
-      let user_key = wx.getStorageSync('user_key');
-      console.log(actid)
+      let id = e.currentTarget.id;
+      var post=this.data.postsList[id];
       wx.navigateTo({
-        url: '/pages/detail/detail?actid=' + actid + "&pubid=" + pubid
+        url: '/pages/detail/detail?id=' + post.id + "&userid=" + post.attributes.user.objectId
       });
     }
   },
