@@ -1,12 +1,20 @@
 {
   "pages": [
+    "pages/my/my",
     "pages/start/start",
     "pages/index/index",
     "pages/logs/logs",
     "pages/post/post",
     "pages/message/message",
     "pages/authorize/authorize",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/my/myrelease/myrelease",
+    "pages/my/contract/contract",
+    "pages/my/issues/issues",
+    "pages/my/apply/apply",
+    "pages/my/about/about",
+    "pages/my/setting/setting",
+    "pages/search/search"
   ],
   "window": {
     "navigationBarTextStyle": "white",
@@ -33,8 +41,8 @@
         "selectedIconPath": "images/tar-about-on.png"
       },
       {
-        "pagePath": "pages/message/message",
-        "text": "动态",
+        "pagePath": "pages/my/my",
+        "text": "我的",
         "iconPath": "images/tar-topic.png",
         "selectedIconPath": "images/tar-topic-on.png"
       }

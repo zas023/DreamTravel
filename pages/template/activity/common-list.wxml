@@ -1,19 +1,20 @@
 <template name="tempCommonList">
   <view class="common-list">
     <block wx:key="id" wx:for="{{postsList}}">
-      <view class="list-item has-img" index="{{index}}" id="{{item.id}}" data-actid="{{item.id}}" data-pubid='{{item.publisherId}}' bindtap="click_activity">
+      <view class="list-item has-img" index="{{index}}" id="{{index}}" bindtap="click_activity">
         <view class="content-title1">
           <text>{{item.title}}</text>
         </view>
         <view class="content-date">
           <image src="/images/calendar.png"></image>
-          <text>{{item.pubtime}}</text>
+          <text>{{item.createdAt}}</text>
           <image src="/images/comments.png"></image>
-            <text class="">{{item.commentnum}}</text>
+            <text class="">{{item.commentNum}}</text>
             <image src="/images/home-like.png"></image>
-            <text class="">{{item.likenum}}</text>        
+            <text class="">{{item.likeNum}}</text>        
         </view>
-        <image src="{{item.actPic}}" mode="aspectFill" class="cover"></image>
+        <image wx:if="{{item.images}}" src="{{item.images[0]}}" mode="aspectFill" class="cover"></image>
+        <image wx:if="{{item.images==null}}" src="/images/website-search.png" mode="aspectFill" class="cover"></image>
       </view>
     </block>
   </view>  

@@ -121,7 +121,6 @@ Page({
     self = this;
     var Diary = Bmob.Object.extend("YuePai");
     var query = new Bmob.Query(Diary);
-    //query.equalTo("isShow", 1); //只统计公开显示的活动
     query.count({
       success: function (count) {
         var totalPage = 0;
@@ -151,7 +150,6 @@ Page({
     var molist = new Array();
     var Diary = Bmob.Object.extend("YuePai");
     var query = new Bmob.Query(Diary);
-    //query.equalTo("isShow", 1); //公开显示的
     query.descending("mark");
     query.include("user");
     query.limit(3);
@@ -254,14 +252,20 @@ Page({
 
   // 点击活动进入活动详情页面
   click_activity: function (e) {
-    if (!this.buttonClicked) {
-      console.log(e)
-      let id = e.currentTarget.id;
-      var post=this.data.postsList[id];
-      wx.navigateTo({
-        url: '/pages/detail/detail?id=' + post.id + "&userid=" + post.attributes.user.objectId
-      });
-    }
+    console.log(e)
+    let id = e.currentTarget.id;
+    var post = this.data.postsList[id];
+    wx.navigateTo({
+      url: '/pages/detail/detail?id=' + post.id + "&userid=" + post.attributes.user.objectId
+    });
+  },
+  click_activity1: function (e) {
+    console.log(e)
+    let id = e.currentTarget.id;
+    var post = this.data.postsShowSwiperList[id];
+    wx.navigateTo({
+      url: '/pages/detail/detail?id=' + post.id + "&userid=" + post.attributes.user.objectId
+    });
   },
   //点击搜索
   click_search: function () {
@@ -273,5 +277,10 @@ Page({
       });
     }
   },
- 
+   
+  handlerAvatarTap:function(){
+    wx.navigateTo({
+      url: '/pages/my/my',
+    })
+  }
 })

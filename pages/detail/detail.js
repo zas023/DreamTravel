@@ -6,11 +6,6 @@ var app = getApp();
 var that;
 var optionId; //活动的Id
 var publisherId; //活动发布者的Id
-var joinpId; //如果当前用户已经加入，该活动在联系表中的Id
-var eventMoreId; //当前活动的活动扩展表Id
-var commentlist;
-var joinlist;
-var likerlist;
 let commentText; //评论输入框内容
 Page({
   data: {
@@ -107,6 +102,8 @@ Page({
         }
       },
     })
+    console.log("optionId:" + optionId)
+    console.log("publisherId:" + publisherId)
   },
 
   /**
@@ -230,21 +227,23 @@ Page({
   //-----------------预约与收藏------------
   //立即预约功能
   click_join: function (event) {
-    var join = that.data.join;
-    console.log(that.data.yuepai.attributes.user.wechatId)
-    if (join == "3") { //如果是自己的发起,跳转修改页面
-      
-    } else{//如果没有加入，弹出联系表单
-      var items = new Array();
-      items[0] = '微信号:' + that.data.yuepai.attributes.user.wechatId;
-      items[1] = 'QQ:' + that.data.yuepai.attributes.user.QQ;
-      items[2] = '电话:' + that.data.yuepai.attributes.user.mobilePhoneNumber;
-      that.setData({
-        //取反
-        actionSheetHidden: !this.data.actionSheetHidden,
-        actionSheetItems: items
-      });
-    }
+    var items = new Array();
+    console.log(this.data.yuepai)
+    var wechat = this.data.yuepai.attributes.user.wechatId;
+    var qq = this.data.yuepai.attributes.user.QQ;
+    var tel = this.data.yuepai.attributes.user.mobilePhoneNumber;
+    items[0] = '微信号:' + wechat;
+    items[1] = 'QQ:' + qq;
+    items[2] = '电话:' + tel;
+    this.setData({
+      //取反
+      actionSheetHidden: !this.data.actionSheetHidden,
+      actionSheetItems: items
+    });
+  },
+
+  click_edit: function (event) {
+    
   },
 
   //响应底部menu_cancel

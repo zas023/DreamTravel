@@ -17,9 +17,8 @@
     </view>
     <!-- 活动详情界面 -->
      <swiper duration="300" interval="5000" autoplay="{{autoplay}}" bindchange="onSwiperChange" current="{{ curIndex }}" style="overflow: visible;">
-      <swiper-item wx:for="{{ postsShowSwiperList }}" style="overflow: visible;" wx:key="actpic">
-        <image src="{{ item.images[0] }}" style="width: 100%; height: 300rpx; background: #fff; box-shadow: 0 10rpx 15rpx rgba(0, 0, 0, .1); -webkit-transform: scale({{ curIndex == index ? 0.9 : 0.65 }}) translate({{ (curIndex == index - 1 || curIndex == index + 1) ? (curIndex - index) * 30 : 0 }}%, 0); -webkit-transition: .3s; position: relative;"
-          data-actid="{{item.id}}" data-pubid='{{item.publisherId}}' bindtap="click_activity" mode="aspectFill" />
+      <swiper-item wx:for="{{ postsShowSwiperList }}" style="overflow: visible;" wx:key="key">
+        <image src="{{ item.images[0] }}" style="width: 100%; height: 300rpx; background: #fff; box-shadow: 0 10rpx 15rpx rgba(0, 0, 0, .1); -webkit-transform: scale({{ curIndex == index ? 0.9 : 0.65 }}) translate({{ (curIndex == index - 1 || curIndex == index + 1) ? (curIndex - index) * 30 : 0 }}%, 0); -webkit-transition: .3s; position: relative;" id="{{index}}" bindtap="click_activity1" mode="aspectFill" />
         <view class="horizontal">
           <view class="tag recommend">最热约拍</view>
           <text class="title">{{item.title}}</text>

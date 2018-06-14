@@ -1,0 +1,108 @@
+<!--pages/my/applay/apply.wxml-->
+<view class="weui-cells__title">基本信息（必填项）</view>
+<view class="weui-panel weui-panel_access">
+
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">姓名</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="与身份证保持一致的姓名" bindinput="bindNameInput" value="{{userName}}" />
+    </view>
+  </view>
+
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">手机号</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="能够联系到您的手机号" bindinput="bindPhoneInput" value="{{userPhone}}" type="digit" />
+    </view>
+  </view>
+
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">QQ号</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="能够联系到您的QQ号" bindinput="bindQQInput" value="{{userQQ}}" type="digit" />
+    </view>
+  </view>
+
+</view>
+
+<view class="weui-cells__title">从业信息（必填项）</view>
+<view class="weui-panel weui-panel_access">
+
+  <view class="weui-cell weui-cell_select">
+    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+      <view class="weui-label">从业年限</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker bindchange="bindWorkLifeChange" value="{{workLifeIndex}}" range="{{workLife}}">
+        <view class="weui-select weui-select_in-select-after">{{workLife[workLifeIndex]}}</view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">接单城市</view>
+    </view>
+    <view class="my_cell">
+      <input class="weui-input" placeholder="请输入你的接单城市" bindinput="binduserCityInput" value="{{userCity}}" />
+      <button size="mini" bindtap="binduserCityTap">选择</button>
+    </view>
+  </view>
+
+  <view class="weui-cell weui-cell_select">
+    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+      <view class="weui-label">申请等级</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker bindchange="bindRangeChange" value="{{rangeIndex}}" range="{{range}}">
+        <view class="weui-select weui-select_in-select-after">{{range[rangeIndex]}}</view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="weui-cells__title"></view>
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">相机型号</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="多台请用”、“隔开" bindinput="bindCameraInput" value="{{userCamera}}" />
+    </view>
+  </view>
+
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">镜头型号</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="多个请用”、“隔开" bindinput="bindLensInput" value="{{userLens}}" />
+    </view>
+  </view>
+
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">摄影风格</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="擅长风格，用”、“隔开" bindinput="bindStyleInput" value="{{userStyle}}" />
+    </view>
+  </view>
+
+</view>
+<view class="weui-cells__title">自我介绍（选填项）</view>
+<view class="weui-cells__title"></view>
+<view class="weui-cells weui-cells_form">
+  <view class="weui-cell">
+    <view class="weui-cell__bd">
+      <textarea class="weui-textarea" auto-height="true" placeholder="请做个自我介绍" bindinput="inputIntroduction" />
+    </view>
+  </view>
+</view>
+<view class="weui-cells__title"></view>
+<button type="primary" size="default" loading="{{buttonLoading}}" bindtap="bindSubmit"> 提交修改 </button>

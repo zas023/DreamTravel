@@ -1,0 +1,92 @@
+<!--pages/my/setting/setting.wxml-->
+<view class="weui-panel weui-panel_access">
+
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">姓名</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="请输入真实姓名" bindinput="bindRealNameInput" value="{{realName}}" />
+    </view>
+  </view>
+
+  <view class="weui-cell weui-cell_select">
+    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+      <view class="weui-label">性别</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker bindchange="bindGenderChange" value="{{genderIndex}}" range="{{gender}}">
+        <view class="weui-select weui-select_in-select-after">{{gender[genderIndex]}}</view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">生日</view>
+    </view>
+     <view class="weui-cell__bd"> 
+      <picker mode="date" value="{{dateValue}}" start="1949-01-01" end="2100-12-12" bindchange="datePickerBindchange">
+        <view class="weui-select weui-select_in-select-after">{{dateValue}}</view>
+      </picker>
+     </view> 
+  </view>
+
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">邮箱</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="电子邮箱地址" bindinput="bindEmailInput" value="{{email}}" />
+    </view>
+  </view>
+   <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">城市</view>
+    </view>
+    <view class="my_cell">
+      <input class="weui-input" placeholder="请输入你所在的城市" bindinput="binduserCityInput" value="{{userCity}}" />
+       <button  size="mini" bindtap="binduserCityTap">选择 </button>
+    </view>
+  </view> 
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">签名</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="个性签名" bindinput="bindQianInput" value="{{qianming}}" />
+    </view>
+  </view>
+</view>
+
+<view class="weui-cells__title">请注意：以下联系方式将展示给该小程序的其他用户</view>
+<view class="weui-cells__title">为保证意向买家能与你取得联系，至少需要填一项</view>
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">微信号</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="请输入微信号" bindinput="bindWechatInput" value="{{userWechat}}" />
+    </view>
+  </view>
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">QQ号</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="请输入QQ号" bindinput="bindQQInput" value="{{userQQ}}" type="number" />
+    </view>
+  </view>
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">手机号</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="请输入手机号" bindinput="bindPhoneInput" value="{{userPhone}}" type="number" />
+    </view>
+  </view>
+</view>
+
+<button type="primary" size="default" loading="{{buttonLoading}}" bindtap="bindSubmit"
+ disabled="{{(userWechat==''||userWechat==null)&&(userQQ==''||userQQ==null)&&(userPhone==''||userPhone==null)&&(!buttonLoading)}}" > 提交修改 </button>

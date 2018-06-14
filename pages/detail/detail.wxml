@@ -155,12 +155,8 @@
 <!--我要加入-->
 <view class="bottom">
   <view class="bottom-beta-box">
-    <form bindtap="click_join" data-join="{{join}}" report-submit="true">
-      <button class="textarea1_case_sign {{join == 0?'un-has':'has'}}" form-type="submit">
-        <view wx:if="{{join == 3}}">修改信息</view>
-        <view wx:if="{{join != 3}}">立即预约</view>
-      </button>
-    </form>
+    <button wx:if="{{join == 3}}" bindtap="click_edit" class="textarea1_case_sign {{join == 0?'un-has':'has'}}" form-type="submit"> 修改信息</button>
+    <button wx:if="{{join!=3}}" bindtap="click_join" class="textarea1_case_sign {{join == 0?'un-has':'has'}}" form-type="submit"> 立即预约</button>
     <form bindtap="click_favo" data-favo="{{favo}}" report-submit="true">
       <button class="textarea1_case_sign {{favo == 0?'un-has':'has'}}" wx:if="{{favo!=3}}" form-type="submit">
         <view wx:if="{{favo == 0}}">立即收藏</view>

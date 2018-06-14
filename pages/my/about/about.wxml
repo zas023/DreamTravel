@@ -1,0 +1,11 @@
+<!--pages/my/about/about.wxml-->
+<text class="desc">
+	《旅拍》是一款开源产品
+   它基于 Bmob 作为后端云服务
+   由理想周行团队开发并维护
+</text>
+<image src="/images/lxzx.jpg" mode="widthFix" />
+<view class="copyright">
+<text>重庆大学 理想周行 团队</text>
+<view><text>Copyright @ {{year}} All Rights Reserved</text></view>
+</view>

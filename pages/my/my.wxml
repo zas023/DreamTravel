@@ -1,0 +1,39 @@
+<!--my.wxml-->
+<view class="top" bindtap="bindMy">
+  <image class=" -avatar" src="{{user.touxiang}}" background-size="cover"></image>
+  <text class="userinfo-nickname">{{user.username}}</text>
+</view>
+
+<view class="weui-cells weui-cells_after-title">
+
+  <navigator url="myrelease/myrelease" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__bd">我的发布</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  </navigator>
+
+  <!-- <navigator url="../myWork/myWork" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__bd">我的作品</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  </navigator> -->
+
+  <navigator url="apply/apply" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__bd">申请入驻</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  </navigator>
+
+  <navigator url="contract/contract" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__bd">用户协议</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  </navigator>
+
+  <navigator url="issues/issues" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__bd">交流反馈</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  </navigator>
+
+  <navigator url="about/about" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__bd">关于我们</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  </navigator>
+
+</view>
