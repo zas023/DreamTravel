@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/my/my",
     "pages/start/start",
+    "pages/my/my",
     "pages/index/index",
     "pages/logs/logs",
     "pages/post/post",
@@ -14,7 +14,8 @@
     "pages/my/apply/apply",
     "pages/my/about/about",
     "pages/my/setting/setting",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/map/map"
   ],
   "window": {
     "navigationBarTextStyle": "white",

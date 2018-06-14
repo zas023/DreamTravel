@@ -59,12 +59,9 @@ Page({
 
   //到地图模式
   gotoMap: function () {
-    if (!this.buttonClicked) {
-      util.buttonClicked(this);
-      wx.navigateTo({
-        url: '/pages/showinmap/showinmap',
-      });
-    }
+    wx.navigateTo({
+      url: '/pages/map/map',
+    });
   },
 
   onLoad(t) {
