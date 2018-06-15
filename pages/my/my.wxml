@@ -1,4 +1,10 @@
 <!--my.wxml-->
+<view class='post-container'>
+  <view class='post'>
+    <import src="../../components/button/button.wxml"/>
+    <template is="button" data="{{ ...$wux.button.br }}"/>
+  </view>
+</view>
 <view class="top" bindtap="bindMy">
   <image class=" -avatar" src="{{user.touxiang}}" background-size="cover"></image>
   <text class="userinfo-nickname">{{user.username}}</text>

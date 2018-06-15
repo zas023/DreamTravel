@@ -9,6 +9,24 @@
         <input name="title" class="input" maxlength="100" placeholder="请输入标题" value="{{title}}" />
         <image class="arrow-r" src="/images/arrow-r-0.png"></image>
       </view>
+       <!-- 约拍价格 -->
+      <view class="mod t-name">
+        <text class="key">价格</text>
+        <input name="price" class="input" maxlength="100" placeholder="请输入价格" value="{{price}}" type="digit"/>
+        <image class="arrow-r" src="/images/arrow-r-0.png"></image>
+      </view>
+      <!-- 底片数量 -->
+      <view class="mod t-name">
+        <text class="key">底片</text>
+        <input name="photoNum" class="input" maxlength="100" placeholder="请输入底片数量" value="{{photoNum}}" type="digit" />
+        <image class="arrow-r" src="/images/arrow-r-0.png"></image>
+      </view>
+      <!-- 精修数量 -->
+      <view class="mod t-name">
+        <text class="key">精修</text>
+        <input name="psNum" class="input" maxlength="100" placeholder="请输入精修数量" value="{{psNum}}" type="digit" />
+        <image class="arrow-r" src="/images/arrow-r-0.png"></image>
+      </view>
     </view>
 
     <view class="mod-a mt20">
@@ -36,24 +54,6 @@
           </view>
         </picker>
       </view>
-      <!-- 约拍价格 -->
-      <view class="mod t-sign-time">
-        <text class="key">价格</text>
-        <input name="price" class="input" maxlength="100" placeholder="请输入价格" value="{{price}}" type="digit"/>
-        <image class="arrow-r" src="/images/arrow-r-0.png"></image>
-      </view>
-      <!-- 底片数量 -->
-      <view class="mod t-sign-time">
-        <text class="key">底片</text>
-        <input name="photoNum" class="input" maxlength="100" placeholder="请输入底片数量" value="{{photoNum}}" type="digit" />
-        <image class="arrow-r" src="/images/arrow-r-0.png"></image>
-      </view>
-      <!-- 精修数量 -->
-      <view class="mod t-sign-time">
-        <text class="key">精修</text>
-        <input name="psNum" class="input" maxlength="100" placeholder="请输入精修数量" value="{{psNum}}" type="digit" />
-        <image class="arrow-r" src="/images/arrow-r-0.png"></image>
-      </view>
 
       <view class="mod  t-early">
         <text class="key">支持视频</text>
@@ -63,20 +63,6 @@
         <text class="key">提供服饰</text>
         <switch type="switch" bindchange="switch1Change" name="switchCustom" />
       </view>
-      <!-- 限制人数 -->
-      <!-- <view class="mod  t-early">
-        <text class="key">限制人数</text>
-        <switch type="switch" bindchange="switch1Change" name="switchPeope" />
-      </view> -->
-
-      <!-- 人数设置 -->
-      <!-- <view wx:if="{{peopleHide}}">
-        <view class="mod t-name">
-          <text class="key">人数设置</text>
-          <input name="peoplenum" type="number" class="input" maxlength="100" placeholder='请输入人数' value="{{peoplenum}}" />
-          <image class="arrow-r" src="/images/arrow-r-0.png"></image>
-        </view>
-      </view> -->
     </view>
 
     <!-- 活动内容 -->

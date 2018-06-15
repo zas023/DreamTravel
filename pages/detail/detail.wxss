@@ -1134,6 +1134,13 @@ float: right;
   bottom: 18rpx;
 }
 
+.clubHome-user-img {
+  padding: 20rpx;
+  position: absolute;
+  left: 15rpx;
+  bottom: 18rpx;
+}
+
 .clubHome-qrcode {
   width: 66rpx;
   height: 66rpx;

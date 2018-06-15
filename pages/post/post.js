@@ -282,7 +282,7 @@ Page({
   submitForm: function (e) {
     var that = this;
 
-    if (that.data.showInput == false) {
+    if (that.data.isAgree == false) {
       wx.showModal({
         title: '提示',
         content: '请先阅读《发起须知》'
@@ -293,6 +293,7 @@ Page({
     var endtime = this.data.date;
     var typeIndex = this.data.typeIndex;
     var acttype = 1 + parseInt(typeIndex);
+    var typename = this.data.types[typeIndex];
     var address = this.data.address;
     var longitude = this.data.longitude; //经度
     var latitude = this.data.latitude;//纬度
@@ -351,6 +352,7 @@ Page({
           diary.set("title", title);
           diary.set("endtime", endtime);
           diary.set("type", acttype + "");
+          diary.set("typeName", typename);
           diary.set("price", price);
           diary.set("address", address);
           diary.set("longitude", longitude);//经度

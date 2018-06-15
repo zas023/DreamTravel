@@ -31,6 +31,7 @@
     <!--发布者信息、发布时间、点赞量、评论量-->
     <view class="des_txt detail_msg">
       <view>
+        <!-- <image class="clubHome-user-img" src="{{yuepai.user.touxiang}}" /> -->
         <text>发起者: {{yuepai.user.username}}</text>
       </view>
       <view>
