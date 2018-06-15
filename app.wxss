@@ -349,3 +349,19 @@ wxs {
   margin-top: 29rpx;
   margin-bottom: 29rpx;
 }
+
+/**post css**/
+
+.post-container{
+  position:fixed;
+  right:18rpx;
+  bottom:5rpx;
+  z-index:100;
+  width: 120prx;
+  height: 120prx;
+}
+
+.post image{
+  width: 120rpx;
+  height: 120rpx;
+}

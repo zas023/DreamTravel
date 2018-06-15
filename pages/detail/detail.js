@@ -1,7 +1,6 @@
 var common = require('../template/getCode.js');
 var Bmob = require("../../utils/bmob.js");
 var util = require('../../utils/util.js');
-import { $wuxButton } from '../../components/wux'
 var app = getApp();
 var that;
 var optionId; //活动的Id

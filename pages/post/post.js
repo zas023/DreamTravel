@@ -387,21 +387,8 @@ Page({
               })
               //添加成功，返回成功之后的objectId(注意，返回的属性名字是id,而不是objectId)
               common.dataLoading("发起成功", "success", function () {
-                //重置表单
-                that.setData({
-                  title: '',
-                  typeIndex: 0,
-                  address: '点击选择位置',
-                  longitude: 0, //经度
-                  latitude: 0,//纬度
-                  data: formate_data(myDate),
-                  isHide: true,
-                  peoplenum: 0,
-                  peopleHide: false,
-                  isAgree: false,
-                  content: "",
-                  contactValue: '',
-                  noteNowLen: 0,
+                wx.navigateBack({//返回
+                  delta: 1
                 })
               });
             },

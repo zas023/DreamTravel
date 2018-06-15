@@ -37,7 +37,7 @@
     </view>
     <view wx:if="{{moodList.length > 0}}">
       <view class="activities" wx:for="{{moodList}}" wx:key="id">
-        <view class="activity" wx:if="{{item.acttype == tradeType || tradeType == 0}}" index="{{index}}">
+        <view class="activity" wx:if="{{item.type == tradeType || tradeType == 0}}" index="{{index}}">
           <view class="list_header">
             <view class="list_header_left">
               <image mode="aspectFill" src="{{item.user.touxiang}}" wx:if="publisherPic"></image>
@@ -49,6 +49,7 @@
             <text class="title">{{ item.title }}</text>
           </view>
           <image mode="aspectFill" class="photo" src="{{item.images[0]}}" wx:if="{{item.images}}" data-actid="{{item.objectId}}" data-pubid='{{item.user.objectId}}' bindtap="click_activity"></image>
+          <image mode="aspectFill" class="photo" src="/images/website-search.png" wx:if="{{item.images==null}}" data-actid="{{item.objectId}}" data-pubid='{{item.user.objectId}}' bindtap="click_activity"></image>
           <text class="intro">{{item.content}}</text>
           <view>
             <text class="time">发布时间：{{ item.endtime }}</text>

@@ -2,6 +2,7 @@
 var common = require('../../utils/common.js')
 var Bmob = require("../../utils/bmob.js");
 var util = require('../../utils/util.js');
+import { $wuxButton } from '../../components/wux'
 const app = getApp()
 var curIndex = 0;
 var that;
@@ -39,6 +40,9 @@ Page({
     curIndex: 0,
     windowHeight1: 0,
     windowWidth1: 0,
+    //----------------------------------
+    index: 2,
+    opened: !1,
   },
 
   //首页切换图片
@@ -65,6 +69,7 @@ Page({
   },
 
   onLoad(t) {
+    this.initButton();
     var self = this;
     try {
       let res = wx.getSystemInfoSync()
@@ -266,18 +271,58 @@ Page({
   },
   //点击搜索
   click_search: function () {
-    if (!this.buttonClicked) {
-      //util.buttonClicked(this);
-      console.log(getCurrentPages())
-      wx.navigateTo({
-        url: '/pages/search/search',
-      });
-    }
+    wx.switchTab({
+      url: '/pages/search/search',
+    });
   },
-   
+  //点击头像
   handlerAvatarTap:function(){
-    wx.navigateTo({
-      url: '/pages/my/my',
+    wx.switchTab({
+      url:'/pages/my/my'
     })
-  }
+  },
+  //----------------------悬浮按钮操作--------------------------------------
+  initButton(position = 'bottomRight') {
+    this.setData({
+      opened: !1,
+    })
+
+    this.button = $wuxButton.init('br', {
+      position: position,
+      buttons: [
+        {
+          label: "添加作品",
+          icon: "/images/add_work.png",
+        },
+        {
+          label: "发布约拍",
+          icon: "/images/add_post.png",
+        },
+      ],
+      buttonClicked(index, item) {
+        if (index === 0) {
+          
+        }
+        else if (index === 1) {
+          wx.navigateTo({
+            url: '/pages/post/post',
+          })
+        }
+        return true
+      },
+      callback(vm, opened) {
+        vm.setData({
+          opened,
+        })
+      },
+    })
+  },
+  switchChange(e) {
+    e.detail.value ? this.button.open() : this.button.close()
+  },
+  pickerChange(e) {
+    const index = e.detail.value
+    const position = this.data.types[index]
+    this.initButton(position)
+  },
 })

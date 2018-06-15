@@ -19,6 +19,8 @@
       <image src="{{item}}" class="header_imgss" id="{{item}}" bindtap='seeActBig' mode="aspectFill" />
     </swiper-item>
   </swiper>
+   <image mode="aspectFill" class="header_imgss" src="/images/website-search.png" 
+   wx:if="{{yuepai.images==null}}"></image>
   <view class="detail_con">
     <!--活动title文字-->
     <template is="actCode" data="{{listPic,imageBytes,codeHehe}}" />

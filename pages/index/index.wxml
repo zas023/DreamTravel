@@ -1,4 +1,10 @@
 <!-- index.wxml -->
+<view class='post-container'>
+  <view class='post'>
+    <import src="../../components/button/button.wxml"/>
+    <template is="button" data="{{ ...$wux.button.br }}"/>
+  </view>
+</view>
 <view class="mpage {{!ui.tStart? 'withAnimate': ''}}" style="left:{{ui.offsetLeft}}px;width: {{ui.windowWidth}}px;" bindtouchstart="handlerStart" catchtouchmove="handlerMove" bindtouchcancel="handlerCancel" bindtouchend="handlerEnd" bindtap="handlerPageTap">
   <scroll-view bindscroll="" scroll-y style="height: 100%;">
     <view class="search">

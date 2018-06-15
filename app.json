@@ -36,8 +36,14 @@
         "selectedIconPath": "images/tar-home-on.png"
       },
       {
-        "pagePath": "pages/post/post",
-        "text": "发起",
+        "pagePath": "pages/search/search",
+        "text": "分类",
+        "iconPath": "images/tar-sort.png",
+        "selectedIconPath": "images/tar-sort-on.png"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "text": "消息",
         "iconPath": "images/tar-about.png",
         "selectedIconPath": "images/tar-about-on.png"
       },

@@ -65,15 +65,15 @@ Page({
           var musiclist = new Array();//音乐
           var otherlist = new Array();//其他
           for (var i in molist) {
-            if (molist[i].acttype == 1) sportlist.push(molist[i]);
-            else if (molist[i].acttype == 2) gamelist.push(molist[i]);
-            else if (molist[i].acttype == 3) friendlist.push(molist[i]);
-            else if (molist[i].acttype == 4) travellist.push(molist[i]);
-            else if (molist[i].acttype == 5) readlist.push(molist[i]);
-            else if (molist[i].acttype == 6) contestlist.push(molist[i]);
-            else if (molist[i].acttype == 7) movielist.push(molist[i]);
-            else if (molist[i].acttype == 8) musiclist.push(molist[i]);
-            else if (molist[i].acttype == 9) otherlist.push(molist[i]);
+             if (molist[i].attributes.type == 1) sportlist.push(molist[i]);
+          else if (molist[i].attributes.type == 2) gamelist.push(molist[i]);
+          else if (molist[i].attributes.type == 3) friendlist.push(molist[i]);
+          else if (molist[i].attributes.type == 4) travellist.push(molist[i]);
+          else if (molist[i].attributes.type == 5) readlist.push(molist[i]);
+          else if (molist[i].attributes.type == 6) contestlist.push(molist[i]);
+          else if (molist[i].attributes.type == 7) movielist.push(molist[i]);
+          else if (molist[i].attributes.type == 8) musiclist.push(molist[i]);
+          else if (molist[i].attributes.type == 9) otherlist.push(molist[i]);
           }
           that.setData({
             moodList: molist,
